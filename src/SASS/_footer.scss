@@ -1,0 +1,148 @@
+@use "utils" as u;
+@use "utils/breakpoints" as *;
+
+.footer {
+    background-color: u.$footerSectionColor;
+    padding: u.rem(50) u.rem(24) u.rem(24) u.rem(24);
+    position: relative;
+    z-index: -2;
+    display: flex;
+    flex-direction: column;
+    gap: u.rem(40);
+
+    @include media-up("medium") {
+        padding: u.rem(200) u.rem(58) u.rem(58) u.rem(58);
+    }
+
+    @include media-up("xlarge") {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: u.rem(-1);
+        left: 0;
+        width: 100%;
+        height: u.rem(90);
+        background: url("/StackCom-landing-page-animated-curved-sections/assets/wave.svg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        transform: rotate(-180deg);
+        z-index: -1;
+
+        @include media-up("medium") {
+            height: u.rem(190);
+            // top: u.rem(-50);
+        }
+
+        @include media-up("large") {
+            height: u.rem(250);
+        }
+    }
+
+    &__newsletter {
+        span {
+            font-size: clamp(u.rem(20), 2vw, u.rem(35));
+            font-weight: 700;
+            color: u.$footerHeaderText;
+        }
+
+        p {
+            color: u.$footerParaText;
+        }
+
+        .input-flex {
+            display: flex;
+            flex-direction: column;
+            gap: u.rem(10);
+
+            span {
+                color: red;
+                font-size: u.rem(16);
+                font-weight: 700;
+                display: none;
+            }
+        }
+        .mail {
+            width: 100%;
+            padding: u.rem(15);
+            font-size: clamp(u.rem(16), 2vw, u.rem(25));
+            font-family: u.$font2;
+            &::placeholder {
+                font-size: clamp(u.rem(16), 2vw, u.rem(25));
+                font-family: u.$font2;
+            }
+
+            @include media-up("medium") {
+                width: 60%;
+            }
+        }
+
+        input[type~="button"] {
+            width: 50%;
+            font-family: u.$font1;
+            font-size: clamp(u.rem(14), u.rem(16) + 2vw, u.rem(16));
+            font-weight: 700;
+            color: u.$buttonfontColor2;
+            background-color: u.$buttonColor2;
+            box-shadow: u.rem(1) u.rem(1) u.rem(6) u.$buttonShadowColor;
+            padding: u.rem(10) u.rem(10);
+            border-radius: u.rem(5);
+            transition: all .5s ease-in-out;
+
+            &:hover {
+                color: u.$buttonfontColorHover2;
+                background-color: u.$buttonColorHover2;
+            }
+
+            @include media-up("medium") {
+                width: 30%;
+            }
+        }
+
+    }
+
+    &__contact {
+        img {
+            width: u.rem(166);
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: baseline;
+
+            img {
+                width: u.rem(16);
+                margin-right: u.rem(20);
+
+                @include media-up("medium") {
+                    width: u.rem(20);
+                }
+            }
+            p {
+                color: u.$footerParaText;
+            }
+        }
+    }
+
+    &__socials {
+        display: flex;
+        justify-content: space-evenly;
+        svg {
+            fill: none;
+            path {
+                fill: u.$footerHeaderText;
+                // &:hover {
+                //     fill: u.$footerSocialIconHover;
+                // }
+            }
+
+            &:hover {
+                fill: u.$footerSocialIconHover;
+            }
+            
+        }
+    }
+}

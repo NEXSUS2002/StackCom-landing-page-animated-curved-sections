@@ -1,0 +1,24 @@
+@use "utils" as u;
+
+#scrollup {
+    display: none;
+    position: fixed;
+    bottom: u.rem(20);
+    right: u.rem(30);
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: u.$fixed-header-color;
+    color: u.$fixed-btn-color;
+    box-shadow: u.rem(1) u.rem(1) u.rem(6) u.$buttonShadowColor;;
+    cursor: pointer;
+    padding: u.rem(15);
+    border-radius: u.rem(10);
+    font-size: u.rem(18);
+    transition: all .5s ease-in-out;
+
+    &:hover {
+        background-color: u.$fixed-btn-color;
+        color: u.$fixed-header-color;
+    }
+}

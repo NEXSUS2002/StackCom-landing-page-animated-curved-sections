@@ -1,0 +1,56 @@
+@use "../utils" as u;
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a,
+a:visited,
+a:hover {
+    text-decoration: none;
+}
+
+body {
+    height: 100svh;
+    font-family: u.$font1, u.$font2, sans-serif;
+    background-color: u.$bgColor;
+    // padding: u.rem(25);
+}
+
+
+// Flexbox
+.flex {
+    display: flex;
+
+    &-fd-col {
+        flex-direction: column;
+    }
+
+    &-fd-row {
+        flex-direction: row;
+    }
+
+
+    &-jc-sb {
+        justify-content: space-between;
+    }
+
+    &-jc-c {
+        justify-content: center;
+    }
+
+    &-ai-c {
+        align-items: center;
+    }
+}
+
+// Grid
+.grid {
+    display: grid;
+
+
+}

@@ -1,0 +1,230 @@
+@use "utils" as u;
+@use "utils/breakpoints" as *;
+
+.mainsec {
+    text-align: center;
+    // margin-top: u.rem(24);
+
+    section {
+        opacity: 0;
+        transform: translateY(u.rem(40));
+        transition: opacity .6s ease-out, transform .6s ease-out;
+    }
+
+    section.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    &__sec1 {
+        padding: 0 u.rem(24) u.rem(24) u.rem(24);
+
+        @include media-up("medium") {
+            padding: 0 u.rem(58) u.rem(58) u.rem(58);  
+        }
+
+        @include media-up("large") {
+            padding: 0 u.rem(68) u.rem(68) u.rem(68);  
+        }
+
+        @include media-up("xlarge") {
+            padding: 0 u.rem(90) u.rem(90) u.rem(90);  
+        }
+        
+        a {
+            font-family: u.$font1;
+            font-size: clamp(u.rem(14), 2vw, u.rem(20));
+            font-weight: 700;
+            color: u.$buttonfontColor2;
+            background-color: u.$buttonColor2;
+            box-shadow: u.rem(1) u.rem(1) u.rem(6) u.$buttonShadowColor;
+            padding: u.rem(20) u.rem(10);
+            border-radius: u.rem(5);
+            transition: all .5s ease-in-out; 
+            // margin-bottom: u.rem(20);
+
+            &:hover {
+                color: u.$buttonfontColorHover2;
+                background-color: u.$buttonColorHover2;
+            }
+        }
+
+        img {
+            display: block;
+            // margin-top: u.rem(40);
+            width: u.rem(280);
+            margin: u.rem(40) auto auto auto;
+
+            @include media-up("medium") {
+                width: u.rem(580);
+            }
+
+            @include media-up("large") {
+                width: u.rem(780);
+            }
+
+            @include media-up("xlarge") {
+                width: u.rem(980);
+            }
+        }
+    }
+
+    &__sec2 {
+        margin-bottom: u.rem(50);
+        display: flex;
+        flex-direction: column;
+
+        @include media-up("medium") {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+        }
+       div {
+            .material-symbols-rounded {
+                color: u.$materialIconsColor;
+                font-size: u.rem(100);
+                display: block;
+                margin: u.rem(40) auto auto auto;
+            }
+
+            .count {
+                font-size: u.rem(50);
+                font-weight: 700;
+                color: u.$headerTextColor;
+            }
+       }
+    }
+
+
+    &__curved-sec3, &__curved-sec4, &__curved-sec5 {
+        padding: u.rem(24);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        @include media-up("medium") {
+            padding: 0 u.rem(100) u.rem(100) u.rem(100);  
+        }
+
+        @include media-up("large") {
+            padding: 0 u.rem(150) u.rem(150) u.rem(150);  
+        }
+
+        @include media-up("xlarge") {
+            padding: 0 u.rem(90) u.rem(90) u.rem(90); 
+            display: flex;
+            flex-direction: row; 
+            justify-content: space-between;
+            text-align: left;
+        }
+
+        img {
+            width: u.rem(255);
+            animation: float 5s infinite;
+
+            @include media-up("medium") {
+                width: u.rem(450);
+            }
+        }
+
+        @keyframes float {
+            0%{transform: translate(0, 0)}
+            50%{transform: translate(0, -20px)}
+            100%{transform: translate(0, 0)}
+        }
+
+    }
+
+    &__curved-sec3, &__curved-sec5 {
+        &::before {
+            content: "";
+            position: absolute;
+            top: u.rem(-1);
+            left: 0;
+            width: 100%;
+            height: u.rem(90);
+            background: url("/StackCom-landing-page-animated-curved-sections/assets/wave.svg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            transform: rotate(-180deg);
+            z-index: -1;
+
+            @include media-up("medium") {
+                height: u.rem(190);
+            }
+
+            @include media-up("large") {
+                height: u.rem(250);
+            }
+            
+        }
+
+
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: u.rem(-1);
+            left: 0;
+            width: 100%;
+            height: u.rem(90);
+            background: url("/StackCom-landing-page-animated-curved-sections/assets/wave.svg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            z-index: -1;
+
+            @include media-up("medium") {
+                height: u.rem(190);
+            }
+
+            @include media-up("large") {
+                height: u.rem(250);
+            }
+        }
+
+        @include media-up("xlarge") {
+            padding: 0 u.rem(90) u.rem(90) u.rem(90); 
+            display: flex;
+            flex-direction: row-reverse; 
+        }     
+    }
+
+    &__curved-sec3 {
+        background-color: u.$sectionColor;
+        position: relative;
+        z-index: -2;        
+    }
+
+    // &__curved-sec4 {
+    
+    // }
+
+    &__curved-sec5 {
+        background-color: u.$sectionColor;
+        position: relative;
+        z-index: -2;
+    }
+
+    &__last-sec {
+        padding: u.rem(24);
+        // display: flex;
+        // flex-direction: column;
+        // gap: u.rem(20);
+        .btn {
+            font-family: u.$font1;
+            font-size: clamp(u.rem(14), u.rem(16) + 2vw, u.rem(16));
+            font-weight: 700;
+            color: u.$buttonfontColor2;
+            background-color: u.$buttonColor2;
+            box-shadow: u.rem(1) u.rem(1) u.rem(6) u.$buttonShadowColor;
+            padding: u.rem(10) u.rem(10);
+            border-radius: u.rem(5);
+            transition: all .5s ease-in-out;
+
+            &:hover {
+                color: u.$buttonfontColorHover2;
+                background-color: u.$buttonColorHover2;
+            }
+        }
+    }
+}
+

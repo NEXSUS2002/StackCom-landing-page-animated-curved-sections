@@ -1,0 +1,27 @@
+@use "../utils" as u;
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    font-family: u.$font1;
+    line-height: 1.1;
+    color: u.$headerTextColor;
+    margin-top: u.rem(24);
+    line-height: u.rem(35);
+}
+
+h1 {
+    font-size: clamp(u.rem(25), u.rem(16) + 2vw, u.rem(40));
+    margin-bottom: u.rem(20);
+}
+
+h2 {
+    font-size: clamp(u.rem(20), u.rem(16) + 2vw, u.rem(35));
+}
+
+p {
+    // margin-top: 0;
+    font-size: clamp(u.rem(16), 2vw, u.rem(25));
+    color: u.$paraTextColor;
+    font-family: u.$font2;
+    margin: u.rem(16) 0 u.rem(25) 0;
+}

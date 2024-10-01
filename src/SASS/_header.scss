@@ -1,0 +1,65 @@
+@use "utils" as u;
+@use "utils/breakpoints" as *;
+
+.header {
+    position: relative;
+    width: 100%;
+    transition: all .3s ease-in-out;
+    scroll-behavior: none;
+
+    
+
+    &.fixed {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background-color: u.$fixed-header-color;
+        box-shadow: 0 u.rem(2) u.rem(5) u.$buttonShadowColor;
+    }
+    nav {
+        padding: u.rem(24);
+
+        @include media-up("medium") {
+            padding: u.rem(40);
+        }
+
+        @include media-up("large") {
+            padding: u.rem(40) u.rem(80);
+        }
+
+        @include media-up("xlarge") {
+            padding: u.rem(45) u.rem(90);
+        }
+    }
+
+    &__logo {
+        img {
+            width: u.rem(150);
+            display: block;
+
+            @include media-up("medium") {
+                width: u.rem(300);
+            }
+        }
+    }
+
+    &__btn {
+        font-family: u.$font1;
+        font-size: clamp(u.rem(14), u.rem(16) + 2vw, u.rem(20));
+        font-weight: 700;
+        color: u.$buttonfontColor1;
+        background-color: u.$buttonColor1;
+        box-shadow: u.rem(1) u.rem(1) u.rem(6) u.$buttonShadowColor;
+        padding: u.rem(10) u.rem(5);
+        border-radius: u.rem(5);
+        transition: all .5s ease-in-out;
+
+
+        &:hover {
+           color: u.$buttonfontColorHover1;
+           background-color: u.$buttonColorHover1; 
+        }
+    }
+}
